@@ -24,7 +24,6 @@ ALTER TABLE tasks * DROP COLUMN IF EXISTS completed;
 
 ALTER TABLE tasks * ADD COLUMN completed_at timestamp;
 
---not sure if this is working
 ALTER TABLE tasks * ALTER COLUMN completed_at SET DEFAULT null;
 
 ALTER TABLE tasks * ALTER COLUMN updated_at SET DEFAULT now();
@@ -47,7 +46,6 @@ VALUES (
   'Read all the documentation'
 );
 
---*
 SELECT title
 FROM tasks
 WHERE completed_at IS null;
@@ -57,7 +55,6 @@ UPDATE tasks
 SET completed_at = now()
 WHERE title = 'Study SQL';
 
---*
 SELECT title, description
 FROM tasks
 WHERE completed_at IS null;
@@ -81,7 +78,6 @@ VALUES (
   'another test entry'
 );
 
---*
 SELECT title
 FROM tasks
 WHERE title LIKE 'mistake%' OR title LIKE '%mistake';
